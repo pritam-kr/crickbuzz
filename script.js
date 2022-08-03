@@ -229,6 +229,8 @@ const lineThrough = (word) => {
     allWords.push(eachWord.innerText.toLowerCase())
     if (word.toLowerCase() === eachWord.innerText.toLowerCase()) {
       eachWord.style.textDecoration = "line-through ";
+      eachWord.style.backgroundColor = "yellow"
+      
     }  
   }
 
