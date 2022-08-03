@@ -210,7 +210,6 @@ wordsContainer.innerHTML = showWords(words);
 
 // generate 12 * 12 matrix
 const matrix = (alphabates) => {
-  var hh = "";
 
   for (var i = 0; i < 169; i++) {
     matrixContainer.innerHTML += `<div class="matrix" id="matrix">${alphabates[i]}</div>`;
@@ -224,13 +223,25 @@ const getMatrix = matrix(alphabates);
 const lineThrough = (word) => {
   const listOfWords = document.querySelectorAll("#word-list");
 
+  const allWords = []
+
   for (let eachWord of listOfWords) {
+    allWords.push(eachWord.innerText.toLowerCase())
     if (word.toLowerCase() === eachWord.innerText.toLowerCase()) {
       eachWord.style.textDecoration = "line-through ";
-    } else {
-      console.error("Word don't match");
-    }
+    }  
   }
+
+
+
+  // Error Handling
+  if(allWords.includes(word.toLowerCase())){
+    return
+  }else{
+    showingAnError("There is no word like you entered. Try something else!")
+  }
+
+   
 };
 
 // match the word in matrix
@@ -251,8 +262,8 @@ const matchWord = (word) => {
     // }
   }
 
-  if (!makeWords.length) {
-    console.error("not ok ");
+  if (makeWords.length === 0) {
+    console.log("not ok ");
   } else {
     lineThrough([...new Set(makeWords)].join(""));
   }
