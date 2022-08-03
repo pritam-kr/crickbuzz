@@ -215,16 +215,19 @@ const matrix = (alphabates) => {
 
 const getMatrix = matrix(alphabates);
 
+// checking that entered word exit on exiting list or not
+const checkingWord = (word) =>
+  words.find((eachWord) => eachWord.toLowerCase() === word.toLowerCase());
+
 // Put line over through the exiting words
 const getLineThrough = (word) => {
   const listOfWords = document.querySelectorAll("#word-list");
-
   const allWords = [];
 
   for (let i = 0; i < words.length; i++) {
     // Pushing to, for error if not matched
     allWords.push(words[i].toLowerCase());
-    if (word.toLowerCase() === words[i].toLowerCase()) {
+    if (checkingWord(word) === words[i].toLowerCase()) {
       listOfWords[i].style.textDecoration = "line-through ";
       listOfWords[i].style.backgroundColor = "yellow";
     }
@@ -236,28 +239,25 @@ const getLineThrough = (word) => {
   } else {
     showingAnError("There is no word like you entered. Try something else!");
   }
-  
 };
 
-// match the word in matrix
+// matching the word in matrix 13 * 13 start point
 const matchWord = (word) => {
+  // Calling getLineThrough function we have matching word
   if (word) {
     getLineThrough(word);
   }
 
   const matrix = document.querySelectorAll("#matrix");
-  let makeWords = [];
 
   for (let i = 0; i < word.length; i++) {
     for (let j = 0; j < alphabates.length; j++) {
-      if (word[i].toUpperCase() === alphabates[j].toUpperCase()) {
-        makeWords.push(alphabates[j]);
+      if (
+        checkingWord(word)[i]?.toUpperCase() === alphabates[j].toUpperCase()
+      ) {
+        matrix[j].style.backgroundColor = "yellow";
       }
     }
-
-    // if(word.toUpperCase().includes(matrix[i].innerHTML)){
-    //      matrix[i].style.backgroundColor = "yellow"
-    // }
   }
 };
 

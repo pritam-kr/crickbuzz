@@ -99,3 +99,11 @@ body {
   align-items: center;
   
 }
+
+.active-box{
+    background-color: yellow;
+}
+
+.inactive-box{
+    background-color: #f7f7f7;
+}
