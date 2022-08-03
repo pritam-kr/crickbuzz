@@ -1,4 +1,4 @@
-## Cricbuzz Assignment
+## [Cricbuzz Assignment](https://cricbuzz-assigment.netlify.app/)
 
 Game is all about a puzzle.
 
