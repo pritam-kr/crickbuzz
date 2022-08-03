@@ -230,7 +230,7 @@ const lineThrough = (word) => {
     if (word.toLowerCase() === eachWord.innerText.toLowerCase()) {
       eachWord.style.textDecoration = "line-through ";
       eachWord.style.backgroundColor = "yellow"
-      
+
     }  
   }
 
@@ -265,7 +265,7 @@ const matchWord = (word) => {
   }
 
   if (makeWords.length === 0) {
-    console.log("not ok ");
+    showingAnError("Something went wrong, Try Again later!");
   } else {
     lineThrough([...new Set(makeWords)].join(""));
   }
