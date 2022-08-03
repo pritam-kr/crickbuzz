@@ -1,0 +1,98 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Roboto:wght@300;400;500&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+
+  font-family: "Lato", sans-serif;
+  font-family: "Roboto", sans-serif;
+}
+
+:root {
+  --primary-color: #00b489;
+  --primary-hover: #059271;
+  --heading-color: rgb(46, 45, 45);
+  --border-color: rgba(46, 45, 45, 0.278);
+  --body-background: #f7f7f7;
+}
+
+.headings {
+  color: var(--heading-color);
+}
+
+.primary-toast {
+    padding: 1rem;
+}
+
+body {
+  background-color: var(--body-background);
+}
+
+.nav {
+  text-align: center;
+  font-size: 2.5rem;
+  padding: 1rem;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 1rem;
+}
+
+.main {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1rem;
+
+  display: grid;
+  grid-template-columns: 30% 70%;
+  gap: 2rem;
+}
+
+.sidebar {
+  border-right: 1px solid var(--border-color);
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+}
+
+.input-container .input {
+  width: 30%;
+}
+
+.input-container .btn-primary,
+.input {
+  padding: 1rem;
+  border-radius: 4px;
+}
+
+.words-container {
+  margin: 1rem 0;
+}
+.word-list {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  text-transform: capitalize;
+}
+
+.matrix-container {
+  margin-top: 1rem;
+  border: 1px solid;
+  padding: 0.5rem;
+  border-color: var(--border-color);
+  background-color: #fff;
+  border-radius: 4px;
+  height: auto;
+
+  display: grid;
+  grid-template-columns: repeat(13, auto);
+  grid-template-rows: repeat(13, auto);
+}
+
+.matrix {
+  border: 1px solid black;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

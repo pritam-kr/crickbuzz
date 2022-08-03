@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--Binary UI-->
+    <link rel="stylesheet" href="https://binary-ui.netlify.app/components/CDN.css" />
+
+    <!--External CSS-->
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Cricbuzz assignment</title>
+</head>
+
+<body>
+    <nav class="nav">
+        <h1 class="headings">Cricket Word Search</h1>
+    </nav>
+
+    <main class="main">
+        <sidebar class="sidebar">
+            <header class="sidebar-header">
+                <h3 class="headings text-xl">Find the Word</h3>
+
+                <div class="words-container" id="words-container"></div>
+            </header>
+        </sidebar>
+
+        <aside class="aside">
+            <div class="input-container">
+                <input type="text" class="input" placeholder="Enter the word" id="input-words" />
+                <button class="btn btn-primary submit" id="btn-submit">Submit</button>
+            </div>
+
+            <div class="matrix-container" id="matrix-container"></div>
+        </aside>
+    </main>
+
+    <!--Toast for Error-->
+    
+    <div class="toast text-lg sm-rounded space-between primary-toast text-sm" id="primary-toast">
+        <i class="fas fa-times-circle component-icons"></i>
+    </div>
+
+    <script src="./toast.js"></script>
+    <script src="./script.js"></script>
+</body>
+
+</html>
