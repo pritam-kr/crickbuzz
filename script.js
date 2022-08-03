@@ -3,7 +3,7 @@ const words = [
   "stumped",
   "fielder",
   "batsman",
-  "ran out",
+  "ranout",
   "catch",
   "umpire",
   "inning",
@@ -206,11 +206,8 @@ const showWords = (words) => {
 
 wordsContainer.innerHTML = showWords(words);
 
-
-
-// generate 12 * 12 matrix
+// Generate 13 * 13 matrix
 const matrix = (alphabates) => {
-
   for (var i = 0; i < 169; i++) {
     matrixContainer.innerHTML += `<div class="matrix" id="matrix">${alphabates[i]}</div>`;
   }
@@ -218,38 +215,37 @@ const matrix = (alphabates) => {
 
 const getMatrix = matrix(alphabates);
 
-
 // Put line over through the exiting words
-const lineThrough = (word) => {
+const getLineThrough = (word) => {
   const listOfWords = document.querySelectorAll("#word-list");
 
-  const allWords = []
+  const allWords = [];
 
-  for (let eachWord of listOfWords) {
-    allWords.push(eachWord.innerText.toLowerCase())
-    if (word.toLowerCase() === eachWord.innerText.toLowerCase()) {
-      eachWord.style.textDecoration = "line-through ";
-      eachWord.style.backgroundColor = "yellow"
-
-    }  
+  for (let i = 0; i < words.length; i++) {
+    // Pushing to, for error if not matched
+    allWords.push(words[i].toLowerCase());
+    if (word.toLowerCase() === words[i].toLowerCase()) {
+      listOfWords[i].style.textDecoration = "line-through ";
+      listOfWords[i].style.backgroundColor = "yellow";
+    }
   }
-
-
 
   // Error Handling
-  if(allWords.includes(word.toLowerCase())){
-    return
-  }else{
-    showingAnError("There is no word like you entered. Try something else!")
+  if (allWords.includes(word.toLowerCase())) {
+    return;
+  } else {
+    showingAnError("There is no word like you entered. Try something else!");
   }
-
-   
+  
 };
 
 // match the word in matrix
 const matchWord = (word) => {
-  const matrix = document.querySelectorAll("#matrix");
+  if (word) {
+    getLineThrough(word);
+  }
 
+  const matrix = document.querySelectorAll("#matrix");
   let makeWords = [];
 
   for (let i = 0; i < word.length; i++) {
@@ -263,12 +259,6 @@ const matchWord = (word) => {
     //      matrix[i].style.backgroundColor = "yellow"
     // }
   }
-
-  if (makeWords.length === 0) {
-    showingAnError("Something went wrong, Try Again later!");
-  } else {
-    lineThrough([...new Set(makeWords)].join(""));
-  }
 };
 
 // Input handler
@@ -277,7 +267,7 @@ const inputHandler = (event) => {
 
   if (!inputValue) {
     // Showing an error
-    showingAnError("Your Input field can not be empty.")
+    showingAnError("Your Input field can not be empty.");
   } else {
     matchWord(inputValue);
   }
@@ -286,8 +276,6 @@ const inputHandler = (event) => {
 };
 
 btnSubmit.addEventListener("click", (event) => inputHandler(event));
-
-
 
 // Function for toast
 const showingAnError = (error) => {
